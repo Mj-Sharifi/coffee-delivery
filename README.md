@@ -28,4 +28,5 @@ Technologies used in the project:
 *   MUI ![Static Badge](https://img.shields.io/badge/MUI-black?style=flat&logo=mui&labelColor=whitesmoke)
 
 <h2>🎨 UI/UX</h2>
-It is created by Figma.</br>Check this [link](https://www.figma.com/file/2TktBsxzBlrsXwM7bVl6hm/Coffee-Delivery) or go to uiux folder.
+It is created by Figma.</br>Check this <a href="https://www.figma.com/file/2TktBsxzBlrsXwM7bVl6hm/Coffee-Delivery" rel="nofollow">link</a> or go to uiux folder.
+
