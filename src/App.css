@@ -1,0 +1,8 @@
+:root {
+  --toastify-color-light: #c47f17 !important;
+  --toastify-text-color-light: #f1e9c9 !important;
+}
+
+.Toastify__toast {
+    border-radius: 50px !important;
+}
