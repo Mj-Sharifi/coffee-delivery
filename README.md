@@ -22,10 +22,10 @@ npm start
 
 Technologies used in the project:
 
-*   React
-*   Redux
-*   React Router
-*   MUI
+*   React ![Static Badge](https://img.shields.io/badge/React-black?style=flat&logo=react&labelColor=whitesmoke)
+*   Redux ![Static Badge](https://img.shields.io/badge/React%20Redux-black?style=flat&logo=redux&logoColor=%23764ABC&labelColor=whitesmoke)
+*   React Router ![Static Badge](https://img.shields.io/badge/React%20Router-black?style=flat&logo=react%20router&labelColor=whitesmoke)
+*   MUI ![Static Badge](https://img.shields.io/badge/MUI-black?style=flat&logo=mui&labelColor=whitesmoke)
 
 <h2>🎨 UI/UX</h2>
 It is created by Figma.</br>Check this [link](https://www.figma.com/file/2TktBsxzBlrsXwM7bVl6hm/Coffee-Delivery) or go to uiux folder.
