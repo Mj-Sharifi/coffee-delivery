@@ -7,7 +7,7 @@
 <p>1. Install <a href="https://github.com/typicode/json-server" rel="nofollow">json-server</a>:</p>
 
 ```
-npm i
+npm install -g json-server@0.17.4
 ```
 
 <p>2. Install the dependencies:</p>
