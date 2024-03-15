@@ -4,13 +4,19 @@
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>1. Install the dependencies:</p>
+<p>1. Install <a href="https://github.com/typicode/json-server" rel="nofollow">json-server</a>:</p>
 
 ```
 npm i
 ```
 
-<p>2. Run the project (port 3000 and 3001 must be empty):</p>
+<p>2. Install the dependencies:</p>
+
+```
+npm i
+```
+
+<p>3. Run the project (port 3000 and 3001 must be empty):</p>
 
 ```
 npm start
