@@ -63,7 +63,7 @@ export default function CoffeeCard({ item,handleToast }) {
           }}
         ></CardMedia>
         <CardContent sx={{ padding: "55px 20px 10px 20px" }}>
-          <Stack direction="row" justifyContent="center" gap={1}>
+          <Stack direction="row" justifyContent="center" gap={1} mb={1}>
             {tags.map((tag, index) => (
               <Chip
                 key={index}

@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import CoffeeCard from "./CoffeeCard";
 import Toast from "../../Components/Toast";
-
-import { RotatingLines } from "react-loader-spinner";
-
+import LoaderSkeleton from "./LoaderSkeleton";
 
 export default function Home() {
   const [coffee, setCoffee] = useState();
@@ -40,21 +38,22 @@ export default function Home() {
             ))}
           </Grid>
         ) : (
-          <Stack direction={"row"} justifyContent={"center"} marginTop={8}>
-            <RotatingLines
-              visible={true}
-              height="96"
-              width="96"
-              strokeColor="#c47f17"
-              strokeWidth="5"
-              animationDuration="0.75"
-              ariaLabel="rotating-lines-loading"
-            />
-          </Stack>
+          <Grid
+            container
+            columnSpacing={4}
+            rowSpacing={10}
+            marginTop={2}
+            justifyContent="center"
+          >
+            {Array(16)
+              .fill(true)
+              .map((e, i) => (
+                <LoaderSkeleton key={i} />
+              ))}
+          </Grid>
         )}
       </Container>
-      <Toast toastMessage={toast}/>
-
+      <Toast toastMessage={toast} />
     </>
   );
 }
