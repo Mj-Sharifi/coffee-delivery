@@ -11,28 +11,9 @@ import {
   Stack,
   Typography,
   ThemeProvider,
-  createTheme,
 } from "@mui/material";
 import React from "react";
 
-const theme = createTheme({
-  typography: {
-    type1: {
-      fontSize: "3rem",
-      fontWeight: "700",
-      LineHeight: "130%",
-    },
-    type2: {
-      fontSize: "1.25rem",
-      fontWeight: "400",
-      LineHeight: "130%",
-    },
-    type3: {
-      fontSize: "1rem",
-      fontWeight: "400",
-    },
-  },
-});
 
 const IconwithText = (bgColor, text, icon) => {
   return (
@@ -51,7 +32,7 @@ const IconwithText = (bgColor, text, icon) => {
         >
           {icon}
         </Box>
-        <Typography variant="type3" component="p">
+        <Typography variant="body1" component="p">
           {text}
         </Typography>
       </Stack>
@@ -60,7 +41,6 @@ const IconwithText = (bgColor, text, icon) => {
 };
 export default function Banner() {
   return (
-    <ThemeProvider theme={theme}>
       <Box
         sx={{
           backgroundImage: "url(assets/images/banner/hero-background.png)",
@@ -84,15 +64,15 @@ export default function Banner() {
           </Box>
           <Box sx={{ width: { xs: "100%", sx: "40%" } }}>
             <Typography
-              variant="type1"
+              variant="h3"
               component="h2"
-              sx={{ marginBottom: "30px" }}
+              sx={{ marginBottom: "30px"}}
               textTransform={"uppercase"}
             >
               Find the perfect coffee for any time of day
             </Typography>
             <Typography
-              variant="type2"
+              variant="h6"
               component="h4"
               sx={{ marginBottom: "60px" }}
             >
@@ -123,6 +103,5 @@ export default function Banner() {
           </Box>
         </Container>
       </Box>
-    </ThemeProvider>
   );
 }
