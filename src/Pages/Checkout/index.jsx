@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Container, Slide, Snackbar, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import PaymentForm from "./PaymentForm";
 import AddressForm from "./AddressForm";
 import BillForm from "./BillForm";
@@ -9,10 +9,6 @@ import { useDispatch } from "react-redux";
 import { submit } from "../../Store/Slices/formSlice";
 import Toast from "../../Components/Toast";
 
-// Snackbar animation
-function SlideTransition(props) {
-  return <Slide {...props} direction="up" />;
-}
 const addressValidation = Yup.object().shape({
   zipCode: Yup.string()
     .matches(/^[0-9]+$/, "Must be only digits")
