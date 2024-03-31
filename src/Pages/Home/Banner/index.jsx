@@ -10,7 +10,6 @@ import {
   Grid,
   Stack,
   Typography,
-  ThemeProvider,
 } from "@mui/material";
 import React from "react";
 

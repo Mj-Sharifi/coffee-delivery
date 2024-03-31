@@ -1,4 +1,4 @@
-import { Container, Grid, Stack, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import CoffeeCard from "./CoffeeCard";
