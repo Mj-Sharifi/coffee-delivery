@@ -42,7 +42,7 @@ export default function Banner() {
   return (
       <Box
         sx={{
-          backgroundImage: "url(assets/images/banner/hero-background.png)",
+          backgroundImage: "url(assets/images/banner/herobackground.png)",
           backgroundSize: "cover",
           paddingY:{xs:"30px",md:"50px"},
           marginBottom: { xs: "50px" },
@@ -57,7 +57,7 @@ export default function Banner() {
           <Box sx={{ width: { xs: "100%", sx: "60%" } }}>
             <img
               style={{ width: "100%" }}
-              src="assets/images/banner/hero-image.png"
+              src="assets/images/banner/heroimage.png"
               alt="banner"
             />
           </Box>

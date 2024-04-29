@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { submit } from "../../Store/Slices/formSlice";
-import Toast from "../../Components/Toast";
+import { ToastContainer } from "react-toastify";
 
 const addressValidation = Yup.object().shape({
   zipCode: Yup.string()
@@ -29,10 +29,6 @@ const addressValidation = Yup.object().shape({
     .required("Please choose a payment method"),
 });
 export default function Checkout() {
-  const [toast, setToast] = useState(false);
-  const handleToast = (message) => {
-    setToast(message);
-  };
   const dispatch = useDispatch();
   const [validation, setValidation] = useState(false);
   const handleValidation = () => {
@@ -92,14 +88,11 @@ export default function Checkout() {
             />
           </Box>
           <Box sx={{ width: { xs: "100%", md: "40%" } }}>
-            <BillForm
-              handleValidation={handleValidation}
-              handleToast={handleToast}
-            />
+            <BillForm handleValidation={handleValidation} />
           </Box>
         </Container>
       </Box>
-      <Toast toastMessage={toast}/>
+      <ToastContainer />
     </>
   );
 }

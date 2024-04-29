@@ -1,23 +1,19 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography,useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import CoffeeCard from "./CoffeeCard";
-import Toast from "../../Components/Toast";
 import LoaderSkeleton from "./LoaderSkeleton";
+import { ToastContainer,toast,Slide } from "react-toastify";
 
 export default function Home() {
+  const mobileSize = useMediaQuery('(max-width:600px)')
   const [coffee, setCoffee] = useState();
-  const [toast, setToast] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:3001/coffee")
+    fetch("https://mjend-db-json.liara.run/coffee-delivery")
       .then((res) => res.json())
-      .then((json) => setCoffee(json))
+      .then((json) => setCoffee(json.coffee))
       .catch((err) => console.log(err));
   }, []);
-  const handleToast = (quantity, coffee) => {
-    setToast(`${quantity} ${coffee} added to the cart`);
-  };
-
   return (
     <>
       <Banner />
@@ -34,7 +30,7 @@ export default function Home() {
             justifyContent="center"
           >
             {coffee?.map((item, index) => (
-              <CoffeeCard key={index} item={item} handleToast={handleToast} />
+              <CoffeeCard key={index} item={item} />
             ))}
           </Grid>
         ) : (
@@ -53,7 +49,7 @@ export default function Home() {
           </Grid>
         )}
       </Container>
-      <Toast toastMessage={toast} />
+      <ToastContainer/>
     </>
   );
 }

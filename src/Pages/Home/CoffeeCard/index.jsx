@@ -9,13 +9,15 @@ import {
   Stack,
   Typography,
   IconButton,
+  useMediaQuery
 } from "@mui/material";
 import React, { useState } from "react";
 import { Add, Remove, ShoppingCart } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { addToList } from "../../../Store/Slices/cartSlice";
-
+import { toast,Slide, ToastContainer } from "react-toastify";
 export default function CoffeeCard({ item,handleToast }) {
+  const mobileSize = useMediaQuery('(max-width:600px)')
   const dispatch = useDispatch();
   const { img, title, description, price, tags } = item;
 
@@ -33,7 +35,20 @@ export default function CoffeeCard({ item,handleToast }) {
 
   const handleCart = ({ item, quantity }) => {
     dispatch(addToList({ item, quantity }));
-    handleToast(quantity,title)
+    toast(`${quantity} ${title} added to the cart`, {
+      position: mobileSize ? "bottom-center" : "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: true,
+      newestOnTop: true,
+      closeOnClick: false,
+      closeButton: false,
+      rtl: false,
+      pauseOnFocusLoss: true,
+      draggable: false,
+      pauseOnHover: false,
+      theme: "light",
+      transition: Slide,
+    })
     setQuantity(1);
   };
   return (
@@ -147,6 +162,7 @@ export default function CoffeeCard({ item,handleToast }) {
           </Stack>
         </CardContent>
       </Card>
+      <ToastContainer/>
     </Grid>
   );
 }

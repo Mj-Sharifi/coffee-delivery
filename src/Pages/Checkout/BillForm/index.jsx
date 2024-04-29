@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Button, Paper, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import CoffeeBill from "./CoffeeBill";
-export default function BillForm({handleValidation,handleToast}) {
+import { ToastContainer } from "react-toastify";
+export default function BillForm({handleValidation}) {
   const { list } = useSelector((state) => state.cart);
   let totalPrice = 0;
   list?.map((e) => (totalPrice += +(e.price * e.quantity).toFixed(2)));
@@ -21,7 +22,7 @@ export default function BillForm({handleValidation,handleToast}) {
         elevation={0}
       >
         {list?.map((e, i) => (
-          <CoffeeBill key={i} item={e} handleToast={handleToast}/>
+          <CoffeeBill key={i} item={e}/>
         ))}
         <Box display="flex" justifyContent="space-between" marginBottom={1}>
           <Typography>Total Items</Typography>

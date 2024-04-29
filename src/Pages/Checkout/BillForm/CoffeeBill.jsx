@@ -5,8 +5,10 @@ import {
   Typography,
   IconButton,
   Divider,
+  useMediaQuery
 } from "@mui/material";
 import React from "react";
+import { toast,Slide, ToastContainer } from "react-toastify";
 import { Add, Delete, Remove } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import {
@@ -15,21 +17,61 @@ import {
   removeItem,
 } from "../../../Store/Slices/cartSlice";
 
-export default function CoffeeBill({ item,handleToast }) {
+export default function CoffeeBill({ item }) {
+  const mobileSize = useMediaQuery('(max-width:600px)')
   const { img, title, price, quantity, id } = item;
   const dispatch = useDispatch();
-  const handleIncrease = (id) =>{
-    dispatch(increaseQuantity(id))
-    handleToast(`1 ${title} added to the cart`)
-  }
-  const handleDeccrease = (id) =>{
-    dispatch(decreaseQunatity(id))
-    handleToast(`1 ${title} removed form the cart`)
-  }
-  const handleRemoveItem = () =>{
-dispatch(removeItem(id))
-handleToast(`All ${title} removed from the cart`)
-  }
+  const handleIncrease = () => {
+    dispatch(increaseQuantity(id));
+    toast(`1 ${title} added to the cart`, {
+      position: mobileSize ? "bottom-center" : "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: true,
+      newestOnTop: true,
+      closeOnClick: false,
+      closeButton: false,
+      rtl: false,
+      pauseOnFocusLoss: true,
+      draggable: false,
+      pauseOnHover: false,
+      theme: "light",
+      transition: Slide,
+    })
+  };
+  const handleDeccrease = () => {
+    dispatch(decreaseQunatity(id));
+    toast(`1 ${title} removed form the cart`, {
+      position: mobileSize ? "bottom-center" : "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: true,
+      newestOnTop: true,
+      closeOnClick: false,
+      closeButton: false,
+      rtl: false,
+      pauseOnFocusLoss: true,
+      draggable: false,
+      pauseOnHover: false,
+      theme: "light",
+      transition: Slide,
+    })
+  };
+  const handleRemoveItem = () => {
+    dispatch(removeItem(id));
+    toast(`All ${title} removed from the cart`, {
+      position: mobileSize ? "bottom-center" : "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: true,
+      newestOnTop: true,
+      closeOnClick: false,
+      closeButton: false,
+      rtl: false,
+      pauseOnFocusLoss: true,
+      draggable: false,
+      pauseOnHover: false,
+      theme: "light",
+      transition: Slide,
+    })
+  };
   return (
     <>
       <Box
@@ -76,7 +118,9 @@ handleToast(`All ${title} removed from the cart`)
               <Button
                 disableRipple
                 variant="filled"
-                startIcon={<Delete size="small" sx={{ color: "secondary.dark" }} />}
+                startIcon={
+                  <Delete size="small" sx={{ color: "secondary.dark" }} />
+                }
                 size="small"
                 aria-label="remove"
                 sx={{
