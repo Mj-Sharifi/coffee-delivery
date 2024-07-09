@@ -1,17 +1,16 @@
-import { Container, Grid, Typography,useMediaQuery } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import CoffeeCard from "./CoffeeCard";
 import LoaderSkeleton from "./LoaderSkeleton";
-import { ToastContainer,toast,Slide } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
-  const mobileSize = useMediaQuery('(max-width:600px)')
   const [coffee, setCoffee] = useState();
   useEffect(() => {
-    fetch("https://mjend-db-json.liara.run/coffee-delivery")
+    fetch("http://localhost:3001/coffee")
       .then((res) => res.json())
-      .then((json) => setCoffee(json.coffee))
+      .then((json) => setCoffee(json))
       .catch((err) => console.log(err));
   }, []);
   return (
